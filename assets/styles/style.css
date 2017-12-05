@@ -24,7 +24,7 @@ a {
 .login-wrapper {
     position: fixed;
     z-index: 0;
-    top: 0;
+    top: 30px;
     left: 0;
     bottom: 0;
     right: 0;
@@ -205,12 +205,19 @@ nav ul li:hover {
 
 nav form {
     position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0px 60px;
+    top: 0px;
+    right: 40px;
+    padding: 0px;
     height: 100%;
 }
 
+nav form + form{
+    position: absolute;
+    top: 0px;
+    right: 140px;
+    padding: 0px;
+    height: 100%;
+}
 nav input[type="submit"] {
     border: 1px solid var(--orange);
     background: var(--orange);
@@ -229,7 +236,7 @@ nav input[type="submit"]:hover {
 main {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 0px;
 }
 
 .left {
