@@ -19,8 +19,6 @@
         return true;
     }
 
-<?php
-
 function allUsers()
 {
     $dbString = file_get_contents(DATABASE);
@@ -83,7 +81,5 @@ function logOut()
     session_destroy();
 }
 
-
-?>
 
 ?>
