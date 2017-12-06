@@ -14,13 +14,14 @@ The user should be able to log in, enter their details, and offer a bike to lend
 + <header> comes now before <main>.
 + CSS Fixes:
    Header was unclickable if the page included "login.php".
+   Buttons on the nav bar were overlapping
 
 ! To do: Save session to file
          Sign up function
    
 # version 0.02
-- removed: notenspiegl files
+- removed: notenspiegel files
 + added files from the "Login" homework.
 
 # version 0.01
-+ added modified files from the "notenspiegl" homework to make it an "add user" instead of "add grade".
++ added modified files from the "notenspiegel" homework to make it an "add user" instead of "add grade".
