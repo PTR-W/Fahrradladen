@@ -1,25 +1,16 @@
 <?php 
-
-    function sortByName($left, $right)
+function validateInput($str, $check)
+{
+    foreach($check as $checkvalue)
     {
-        return strcasecmp($left['uname'], $right['uname']);
-    }
-
-
-    function validateInput($str, $check)
-    {
-        foreach($check as $checkvalue)
-        {
             
-            if (strpos($str, $checkvalue) !== false)
-            {
-                return false;
-            }
+        if (strpos($str, $checkvalue) !== false)
+        {
+            return false;
         }
-        return true;
     }
-
-<?php
+    return true;
+}
 
 function allUsers()
 {
@@ -65,12 +56,12 @@ function logIn(&$error)
 
         else
         {
-            $error = 'password false';
+            $error = 'pwd false';
         }
     }
     else
     {
-        $error = 'user existiert nicht';
+        $error = 'no such name';
     }
 
     return false;
@@ -83,7 +74,5 @@ function logOut()
     session_destroy();
 }
 
-
-?>
 
 ?>

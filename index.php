@@ -1,13 +1,9 @@
 <?php
 
+session_start();
 require_once './core/helper.php';
 require_once './core/config.php'; 
 require_once './core/functions.php'; 
-
-$loggedIn = isset($_SESSION['user']);
-
-session_save_path(__DIR__.'/data');
-session_start();
 
 if (isset($_POST['submitLogin']))
 {
@@ -23,9 +19,10 @@ else if(isset($_POST['submitLogout']))
 {
     logOut();
 }
+
 $loggedIn = isset($_SESSION['user']);
-$title = 'Login';
-$mode='';
+$title = isset($_GET['p']) ? $_GET['p'] : 'Home';
+
 ?>
 
 <!DOCTYPE html>
@@ -34,69 +31,69 @@ $mode='';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles/style.css">
-    <title>Home</title>
+    <title><?=$title?></title>
 </head>
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="index.php?p=page1">seite 1</a></li>
-            <li><a href="index.php?p=page2">seite 2</a></li>
-            <li><a href="index.php?p=page3">seite 3</a></li>
-        </ul>
-                <form action="" method="post">
-                <input type="submit" name="loginButton" value="login">
-                <input type="submit" name="registerButton" value="register">
-                </form>
-    </nav>
-</header>
 
-<main>
 
 <?php
 
 $page = isset($_GET['p']) ? $_GET['p'] : '';
-
-switch($page)
+if($loggedIn)
 {
-    case 'page1':
+    include (VIEWPATH.'site.php');
+}
+else
+{
+    switch($page)
+    {
+        case 'Page1':
+        include (VIEWPATH.'header.php');
+        include (VIEWPATH.'pages/page1.php');
+        break;
     
-    include (VIEWPATH.'pages/page1.php');
-    break;
-
-    case 'page2':
+        case 'Page2':
+        include (VIEWPATH.'header.php');
+        include (VIEWPATH.'pages/page2.php');
+        break;
     
-    include (VIEWPATH.'pages/page2.php');
-    break;
-
-
-    case 'page3':
     
-    include (VIEWPATH.'pages/page3.php');
-    break;
-
-    default:
-    break;
+        case 'Page3':
+        include (VIEWPATH.'header.php');
+        include (VIEWPATH.'pages/page3.php');
+        break;
+    
+        case 'Register':
+        include (VIEWPATH.'header.php');
+        include (VIEWPATH.'register.php');
+        break;
         
+        case 'Login':
+        include (VIEWPATH.'header.php');
+        include (VIEWPATH.'login.php');
+        break;
+    
+        default:
+        include (VIEWPATH.'header.php');
+        break;
+            
+    }
 }
-
-
-if(isset($_POST['loginButton']))
-{   
-    include (VIEWPATH.'login.php');
-}
-
-else if(isset($_POST['registerButton']))
-{
-    include (VIEWPATH.'register.php');
-}
-else;
-
 ?>
 
-</main>
 
+<?php if(isset($error) && $error !== false) : ?>
+            <div class="error">
+                <span onclick="{this.parentNode.parentNode.removeChild(this.parentNode);}">
+                    x
+                </span>
+                <?=$error?>
+            </div>
+        <?php endif; ?>
+
+</main>
+    
 <footer>
 </footer>
 
