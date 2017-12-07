@@ -21,7 +21,7 @@ else if(isset($_POST['submitLogout']))
 }
 
 $loggedIn = isset($_SESSION['user']);
-$title = isset($_GET['p']) ? $_GET['p'] : 'Home';
+$title = $_GET['p'] ?? 'Home';
 
 ?>
 
@@ -39,7 +39,7 @@ $title = isset($_GET['p']) ? $_GET['p'] : 'Home';
 
 <?php
 
-$page = isset($_GET['p']) ? $_GET['p'] : '';
+$page = $_GET['p'] ?? '';
 if($loggedIn)
 {
     include (VIEWPATH.'site.php');

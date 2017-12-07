@@ -13,11 +13,19 @@ if(isset($error)): ?>
         <div class="img"></div>
         <div class="title">REGISTER</div>
 
-        <form action="" method="post">
+        <form action="<?=$_SERVER['SCRIPT_NAME']?>?p=Register" method="post">
     
-        <label for="uname">User Name</label>
+        <label for="uname">Username</label>
         <input type="text" name="uname" id="uname" placeholder="Your Username" required
         value="<?=isset($error)&&isset($_POST['uname']) ? htmlspecialchars($_POST['uname']):''?>">
+
+        <label for="fname">Firstname</label>
+        <input type="text" name="fname" id="fname" placeholder="Firstname" required
+        value="<?=isset($error)&&isset($_POST['fname']) ? htmlspecialchars($_POST['fname']):''?>">
+
+        <label for="lname">Lastname</label>
+        <input type="text" name="lname" id="lname" placeholder="Your Lastname" required
+        value="<?=isset($error)&&isset($_POST['lname']) ? htmlspecialchars($_POST['lname']):''?>">
     
 
 

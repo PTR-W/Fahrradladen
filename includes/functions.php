@@ -1,4 +1,5 @@
 <?php 
+include 'config.php';
 function validateInput($str, $check)
 {
     foreach($check as $checkvalue)
@@ -33,8 +34,8 @@ function user($id)
 function logIn(&$error)
 {
     $users = allUsers();
-    $userRef = isset($_POST['validationName']) ? $_POST['validationName'] : '';
-    $password = isset($_POST['validationPassword']) ? $_POST['validationPassword'] : '';
+    $userRef = $_POST['validationName'] ?? '';
+    $password = $_POST['validationPassword'] ?? '';
 
     foreach ($users as $idx => $userData)
     {

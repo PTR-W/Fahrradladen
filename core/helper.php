@@ -1,36 +1,43 @@
 <?php if(isset($_POST['pwd'])&&isset($_POST['pwd2'])&&($_POST['pwd2']!==$_POST['pwd']))
-$error="The passwords don't match"?>
+$error="The passwords don't match";
 
-
-<?php
-
-require_once './core/functions.php';
-const _DB = './includes/usersDB.txt';
-
+include_once 'functions.php';
+include_once 'config.php';
+const _DB = './data/db.json';
 
 /* BEGIN: sending data after button click*/
 if(isset($_POST['submitRegister']))
 {   
     
     $uname = htmlspecialchars($_POST['uname']);
-    $pwd = htmlspecialchars($_POST['pwd']);
-    $pwd2 = htmlspecialchars($_POST['pwd2']);
+    $fname = htmlspecialchars($_POST['fname']);
+    $lname = htmlspecialchars($_POST['lname']);
+    $pwd = ($_POST['pwd']);
+    $pwd2 = ($_POST['pwd2']);
     $email = htmlspecialchars($_POST['email']);
 
-    $check= ['#', '>', '<', '^', '*', '%', '$', '&'];
+    $check= ['#', '>', '<', '^', '*', '%', '$', '&', '/'];
 
     /*checks if the input data is free from special characters*/
-    if(validateInput($uname, $check)&&validateInput($email,$check)&&validateInput($pwd,$check)&&validateInput($pwd2,$check))
-    
+    if(validateInput($uname,$check)&&validateInput($email,$check)&&validateInput($fname,$check)&&validateInput($lname,$check))    
     {   /*checks if the passwords match*/
         if($pwd === $pwd2)
         {   
             
             /*write the data in the file*/
-            $data = $uname .'#'. $email .'#'. $pwd;
-        
-            $file = fopen(_DB, 'a+');
-            fwrite($file, $data.PHP_EOL);
+
+            #1 get a string of the db
+            #2 convert it to array
+            #3 add row of new data
+            #4 reconvert to string
+            #write to file
+            
+            $json = ['users' =>allUsers()];
+            $newData= array("id"=> "0001","firstName"=> "$fname","lastName"=> "$lname","email"=> "$email","username"=> "$uname","password"=> "$pwd");
+            $json += $newData;
+            $json = json_encode($json, True);
+            $file = fopen(_DB,'w');
+            fwrite($file, $json);
             fclose($file);
         }
 
@@ -49,21 +56,5 @@ if(isset($_POST['submitRegister']))
 
     
 }
-/* END: sending data after button click*/
 
-/* BEGIN: reading data from file*/
-$content = [];
-$keys = ['uname', 'email', 'pwd'];
-
-$file=fopen(_DB, 'r');
-while($line = fgets($file))
-{
-    $content[]= array_combine($keys, explode('#',$line));
-}
-
-fclose($file);
-
-usort($content, 'sortByName');
-
-/* END: reading data from file*/
 ?>

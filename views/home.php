@@ -23,7 +23,7 @@ else if(isset($_POST['submitLogout']))
 
 $loggedIn = isset($_SESSION['user']);
 $title = 'Login';
-$page = isset($_GET['p']) ? $_GET['p'] : '';
+$page = $_GET['p'] ?? '';
 ?>
 
 
