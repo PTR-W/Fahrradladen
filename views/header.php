@@ -1,15 +1,14 @@
 <header class="override">
     <nav>
         <ul>
-            <li><a href="index.php?p=Home" >Home</a></li>
-            <li><a href="index.php?p=Page1">seite 1</a></li>
-            <li><a href="index.php?p=Page2">seite 2</a></li>
-            <li><a href="index.php?p=Page3">seite 3</a></li>
+            <li><a href="index.php?p=home" >Home</a></li>
+            <li><a href="index.php?p=page1">About Us</a></li>
+            <li><a href="index.php?p=page2">How It Works</a></li>
         </ul>
-                <form action="<?=$_SERVER['PHP_SELF'].'?p=Register';?>" method="post">
+                <form action="<?=$_SERVER['PHP_SELF'].'?p=register';?>" method="post">
                 <input type="submit" name="registerButton" value="Register">
                 </form>
-                <form action="<?=$_SERVER['PHP_SELF'].'?p=Login';?>" method="post">
+                <form action="<?=$_SERVER['PHP_SELF'].'?p=login';?>" method="post">
                 <input type="submit" name="loginButton" value="Login">
                 </form>
     </nav>

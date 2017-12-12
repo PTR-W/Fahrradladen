@@ -1,3 +1,4 @@
+<div class="container-1000px">
 <form action="#" method="post" class="personal-data">
 
 <div class="left">
@@ -31,3 +32,4 @@
 </div>
 
 </form>
+</div>

@@ -4,7 +4,7 @@
         <div class="img"></div>
         <div class="title">LOGIN</div>
 
-        <form action="<?=$_SERVER['PHP_SELF'].'?p=user';?>" method="post">
+        <form action="<?=$_SERVER['PHP_SELF'].'?p=home';?>" method="post">
             <label for="loginName">Email oder Benutzername</label>
             <input type="text" name="validationName" id="loginName" placeholder="ihre@mail.de"
             <?=isset($_POST['validationName']) ? 'value="'.htmlspecialchars($_POST['validationName']).'"' : ''?>>
