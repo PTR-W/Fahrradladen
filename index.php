@@ -1,9 +1,12 @@
 <?php
 
 session_start();
-require_once './core/helper.php';
-require_once './core/config.php'; 
-require_once './core/functions.php'; 
+require_once './core/path_config.php';
+require_once './core/db_config.php'; 
+require_once './core/register_function.php';
+require_once './core/login_function.php';
+require_once './core/logout_function.php';
+
 
 if (isset($_POST['submitLogin']))
 {
@@ -15,9 +18,16 @@ if (isset($_POST['submitLogin']))
 
     }
 }
-else if(isset($_POST['submitLogout']))
+
+if (isset($_POST['submitRegister']))
 {
-    logOut();
+    $error=true;
+    $user = pre_register($error);
+    // if(!$error)
+    // {
+    //     $_SESSION['user'] = $user;
+
+    // }
 }
 
 $loggedIn = isset($_SESSION['user']);

@@ -18,7 +18,7 @@
             <?=isset($_POST['rememberMe']) ? 'checked' : ''?>>
             <label for="check">angemeldet bleiben?</label>
             
-            <a href="<?=$_SERVER['SCRIPT_NAME']?>?p=Register">Noch kein Konto?</a>
+            <a href="<?=$_SERVER['PHP_SELF']?>?p=Register">Noch kein Konto?</a>
             
             <div class="clear"></div>
         </form>

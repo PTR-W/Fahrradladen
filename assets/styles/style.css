@@ -94,6 +94,8 @@ label {
     margin-right: 100px;
     border: solid 3px;
     border-color: var(--blue);
+    color: var(--blue);
+    text-shadow: none;
 }
 
 
