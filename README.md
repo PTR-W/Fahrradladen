@@ -5,6 +5,16 @@ Fahrradladen mit Online Shop
 The user should be able to log in, enter their details, and offer a bike to lend, or borrow one from the other users.
 
 # CHANGELOG
+# version 0.05
++ Using MySQL with PDO.
++ Register function works.
++ Login function works.
++ Minor improvements and deletion of obsolete code.
+
+! To do: Complete all DB functions
+         Improve stability with exception handling
+         Use Links instead of Buttons
+
 # version 0.04
 + Home Page.
 + CSS Fixes:
