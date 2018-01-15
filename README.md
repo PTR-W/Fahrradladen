@@ -13,7 +13,8 @@ The user should be able to log in, enter their details, and offer a bike to lend
 
 ! To do: Complete all DB functions
          Improve stability with exception handling
-         Use Links instead of Buttons
+         Save session to file
+         Stay on the same page in case of an error.
 
 # version 0.04
 + Home Page.
@@ -25,16 +26,13 @@ The user should be able to log in, enter their details, and offer a bike to lend
 + Fixed site.php not immediately loading after successful login.
 + Fixed header.php not immediately loading after successful logout.
 + Two different Headers depending on Login status.
-+ <header> comes now before <main>.
++ Put Header and Main in the right order.
 + CSS Fixes:
    Header was unclickable if the page included "login.php".
-   Buttons on the nav bar were overlapping
-
-! To do: Save session to file
-         Sign up function
+   Buttons on the nav bar were overlapping.
    
 # version 0.02
-- removed: notenspiegel files
+- removed: notenspiegel files.
 + added files from the "Login" homework.
 
 # version 0.01
